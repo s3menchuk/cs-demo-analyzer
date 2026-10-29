@@ -1,0 +1,280 @@
+{
+  "de_mirage": {
+    "name": "Mirage",
+    "pos_x": -3230,
+    "pos_y": 1713,
+    "scale": 5,
+    "levels": [
+      {
+        "id": "default",
+        "label": "Основной этаж",
+        "image": "/static/maps/de_mirage_radar_psd.png",
+        "min_z": null,
+        "max_z": null
+      }
+    ],
+    "revision": "9a77417b108eab6ee8c10d1140d62c0b77f54174",
+    "sites": [
+      {
+        "name": "A",
+        "x": -465.1999999999998,
+        "y": -2178.2,
+        "level": "default"
+      },
+      {
+        "name": "B",
+        "x": -2052.3999999999996,
+        "y": 279.39999999999986,
+        "level": "default"
+      }
+    ]
+  },
+  "de_dust2": {
+    "name": "Dust II",
+    "pos_x": -2476,
+    "pos_y": 3239,
+    "scale": 4.4,
+    "levels": [
+      {
+        "id": "default",
+        "label": "Основной этаж",
+        "image": "/static/maps/de_dust2_radar_psd.png",
+        "min_z": null,
+        "max_z": null
+      }
+    ],
+    "revision": "9a77417b108eab6ee8c10d1140d62c0b77f54174",
+    "sites": [
+      {
+        "name": "A",
+        "x": 1128.4800000000005,
+        "y": 2518.104,
+        "level": "default"
+      },
+      {
+        "name": "B",
+        "x": -1529.824,
+        "y": 2698.328,
+        "level": "default"
+      }
+    ]
+  },
+  "de_inferno": {
+    "name": "Inferno",
+    "pos_x": -2087,
+    "pos_y": 3870,
+    "scale": 4.9,
+    "levels": [
+      {
+        "id": "default",
+        "label": "Основной этаж",
+        "image": "/static/maps/de_inferno_radar_psd.png",
+        "min_z": null,
+        "max_z": null
+      }
+    ],
+    "revision": "9a77417b108eab6ee8c10d1140d62c0b77f54174",
+    "sites": [
+      {
+        "name": "A",
+        "x": 1977.2560000000008,
+        "y": 407.8560000000002,
+        "level": "default"
+      },
+      {
+        "name": "B",
+        "x": 371.62400000000025,
+        "y": 2766.1279999999997,
+        "level": "default"
+      }
+    ]
+  },
+  "de_nuke": {
+    "name": "Nuke",
+    "pos_x": -3453,
+    "pos_y": 2887,
+    "scale": 7,
+    "levels": [
+      {
+        "id": "default",
+        "label": "Основной этаж",
+        "image": "/static/maps/de_nuke_radar_psd.png",
+        "min_z": -495,
+        "max_z": 10000
+      },
+      {
+        "id": "lower",
+        "label": "Нижний этаж",
+        "image": "/static/maps/de_nuke_lower_radar_psd.png",
+        "min_z": -10000,
+        "max_z": -495
+      }
+    ],
+    "revision": "9a77417b108eab6ee8c10d1140d62c0b77f54174",
+    "sites": [
+      {
+        "name": "A",
+        "x": 704.4399999999996,
+        "y": -553.6399999999999,
+        "level": "default"
+      },
+      {
+        "name": "B",
+        "x": 704.4399999999996,
+        "y": -1270.4399999999996,
+        "level": "lower"
+      }
+    ]
+  },
+  "de_ancient": {
+    "name": "Ancient",
+    "pos_x": -2953,
+    "pos_y": 2164,
+    "scale": 5,
+    "levels": [
+      {
+        "id": "default",
+        "label": "Основной этаж",
+        "image": "/static/maps/de_ancient_radar_psd.png",
+        "min_z": null,
+        "max_z": null
+      }
+    ],
+    "revision": "9a77417b108eab6ee8c10d1140d62c0b77f54174",
+    "sites": [
+      {
+        "name": "A",
+        "x": -1365.8,
+        "y": 884.0,
+        "level": "default"
+      },
+      {
+        "name": "B",
+        "x": 1143.0,
+        "y": 116.0,
+        "level": "default"
+      }
+    ]
+  },
+  "de_anubis": {
+    "name": "Anubis",
+    "pos_x": -2796,
+    "pos_y": 3328,
+    "scale": 5.22,
+    "levels": [
+      {
+        "id": "default",
+        "label": "Основной этаж",
+        "image": "/static/maps/de_anubis_radar_psd.png",
+        "min_z": null,
+        "max_z": null
+      }
+    ],
+    "revision": "9a77417b108eab6ee8c10d1140d62c0b77f54174",
+    "sites": []
+  },
+  "de_overpass": {
+    "name": "Overpass",
+    "pos_x": -4831,
+    "pos_y": 1781,
+    "scale": 5.2,
+    "levels": [
+      {
+        "id": "default",
+        "label": "Основной этаж",
+        "image": "/static/maps/de_overpass_radar_psd.png",
+        "min_z": null,
+        "max_z": null
+      }
+    ],
+    "revision": "9a77417b108eab6ee8c10d1140d62c0b77f54174",
+    "sites": [
+      {
+        "name": "A",
+        "x": -1902.3599999999997,
+        "y": 556.2959999999998,
+        "level": "default"
+      },
+      {
+        "name": "B",
+        "x": -1103.6400000000003,
+        "y": 130.3119999999999,
+        "level": "default"
+      }
+    ]
+  },
+  "de_train": {
+    "name": "Train",
+    "pos_x": -2308,
+    "pos_y": 2078,
+    "scale": 4.082077,
+    "levels": [
+      {
+        "id": "default",
+        "label": "Основной этаж",
+        "image": "/static/maps/de_train_radar_psd.png",
+        "min_z": -50,
+        "max_z": 20000
+      },
+      {
+        "id": "lower",
+        "label": "Нижний этаж",
+        "image": "/static/maps/de_train_lower_radar_psd.png",
+        "min_z": -5000,
+        "max_z": -50
+      }
+    ],
+    "revision": "9a77417b108eab6ee8c10d1140d62c0b77f54174",
+    "sites": [
+      {
+        "name": "A",
+        "x": 325.4295142400001,
+        "y": 29.77704447999986,
+        "level": "default"
+      },
+      {
+        "name": "B",
+        "x": -134.3756390399999,
+        "y": -1098.8356044799998,
+        "level": "default"
+      }
+    ]
+  },
+  "de_vertigo": {
+    "name": "Vertigo",
+    "pos_x": -3168,
+    "pos_y": 1762,
+    "scale": 4,
+    "levels": [
+      {
+        "id": "default",
+        "label": "Основной этаж",
+        "image": "/static/maps/de_vertigo_radar_psd.png",
+        "min_z": 11700,
+        "max_z": 20000
+      },
+      {
+        "id": "lower",
+        "label": "Нижний этаж",
+        "image": "/static/maps/de_vertigo_lower_radar_psd.png",
+        "min_z": -10000,
+        "max_z": 11700
+      }
+    ],
+    "revision": "9a77417b108eab6ee8c10d1140d62c0b77f54174",
+    "sites": [
+      {
+        "name": "A",
+        "x": -280.32000000000016,
+        "y": -634.1599999999999,
+        "level": "default"
+      },
+      {
+        "name": "B",
+        "x": -2258.688,
+        "y": 848.592,
+        "level": "default"
+      }
+    ]
+  }
+}

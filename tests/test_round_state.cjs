@@ -1,0 +1,38 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const sandbox={};
+for(const file of ['replay','map-view','overlays','round-state'])vm.runInNewContext(fs.readFileSync(`static/${file}.js`,'utf8')+`;globalThis.${file==='round-state'?'state':'unused'}=${file==='round-state'?'RoundState':'null'};`,sandbox);
+const r=sandbox.state,round={start:0,end:10000,decision_tick:9000,winner:'CT'};
+const frames=[{tick:0,round:1,players:[],clock:{seconds:20,freeze:true,paused:false,game_time:0}},
+              {tick:1280,round:1,players:[],clock:{seconds:115,freeze:false,paused:false,game_time:20}},
+              {tick:1920,round:1,players:[],clock:{seconds:105,freeze:false,paused:true,game_time:30}}];
+assert.equal(r.clockAt(frames,640,64).seconds,10);
+assert.equal(r.clockAt(frames,1600,64).seconds,110);
+assert.equal(r.clockAt(frames,1950,64).seconds,105);
+assert.equal(r.state(round,frames,[],[],0,64).phase,'freeze');
+assert.equal(r.state(round,frames,[],[],9000,64).phase,'ended');
+const bomb={planted_tick:2000,planted_game_time:null,fuse_seconds:40,fuse_source:'server_cvar',resolved_tick:4000,outcome:'defused'};
+let state=r.state(round,[],[bomb],[],2640,64);
+assert.equal(state.bomb.remaining,30);assert.equal(state.bomb.approximate,false);
+state=r.state(round,[],[bomb],[{type:'bomb_begindefuse',tick:2600,actor:'CT',has_kit:true}],2728,64);
+assert.equal(state.bomb.defuse.remaining,3);
+assert.equal(state.bomb.defuse.progress,.4);
+state=r.state(round,[],[bomb],[{type:'bomb_begindefuse',tick:2600,actor:'CT',has_kit:true},{type:'bomb_abortdefuse',tick:2700}],2728,64);
+assert.equal(state.bomb.defuse,null);
+assert.equal(r.state(round,[],[bomb],[],4000,64).bomb.state,'defused');
+assert.equal(r.state(round,[],[{...bomb,resolved_tick:null}],[],9000,64).bomb.state,'round_ended');
+assert.equal(r.state(round,[],[{...bomb,fuse_seconds:null,fuse_source:'unknown'}],[],2640,64,45).bomb.remaining,35);
+assert.equal(r.state(round,[],[{...bomb,fuse_source:'measured_other_rounds'}],[],2640,64).bomb.approximate,true);
+assert.equal(r.state(round,[],[],[{type:'bomb_beginplant',tick:1000}],1100,64).planting.type,'bomb_beginplant');
+assert.equal(r.state(round,[],[],[{type:'bomb_beginplant',tick:1000},{type:'bomb_abortplant',tick:1050}],1100,64).planting,null);
+assert.equal(r.countdown(10.01),'0:10.1');
+assert.equal(r.countdown(-1),'0:00.0');assert.equal(r.countdown(null),'—');
+assert.equal(r.shotVisible({tick:100},99,64),false);
+assert.equal(r.shotVisible({tick:100},105,64),true);
+assert.equal(r.shotVisible({tick:100},111,64),false);
+let lines=[];
+const ctx=new Proxy({moveTo:(x,y)=>lines.push([x,y]),lineTo:(x,y)=>lines.push([x,y])},{get:(o,k)=>o[k]||(()=>{})});
+const shots=[{tick:100,shooter_id:'1',side:'CT',position:{x:0,y:0,z:0},yaw:90,pitch:0}];
+assert.equal(r.drawShots(ctx,p=>[p.x,-p.y],null,'default',shots,100,64,'1','CT'),1);
+assert.ok(Math.abs(lines[1][0])<1e-8&&lines[1][1]<0);
+assert.equal(r.drawShots(ctx,p=>[p.x,-p.y],null,'default',shots,100,64,'2','CT'),0);
+console.log('Round/freeze/pause clocks, bomb transitions, defuse, countdowns and shooting checks passed');
